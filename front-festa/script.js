@@ -1,3 +1,4 @@
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:8080' : 'https://seu-backend-vercel.app';
 window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#escolha').addEventListener('click', () => {
         document.querySelector('#fileInput').click()
@@ -8,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 async function allImgs () {
     try {
-        await fetch(`192.168.2.131:8080/getAllImgs`)
+        await fetch(`${API_URL}/getAllImgs`)
         .then(res => {
             if (!res.ok) {
                 throw new Error('Erro ao Enviar Imagem')
@@ -70,7 +71,7 @@ async function enviaImg () {
 
 
     try {
-       await fetch(`192.168.2.131:8080/upload`, {
+       await fetch(`${API_URL}/upload`, {
             method : 'POST',
             body : formData           
         })
