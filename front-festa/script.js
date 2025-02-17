@@ -16,16 +16,13 @@ async function enviaImg () {
         return
     }
 
-    let obj = {
-        imagem : imgFile,
-        nome : nome
-    }
-    obj = JSON.stringify(obj);
-
+  const formData = new FormData();
+    formData.append('image', imageFile); // Adiciona o arquivo de imagem
+    formData.append('name', personName); // Adiciona o nome da pessoa
     try {
         const response = await fetch(`http://localhost:8080/upload`, {
             method : 'POST',
-            body : obj           
+            body : formData          
         })
         
         if (response.ok) {
