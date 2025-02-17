@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 async function allImgs () {
     try {
-        await fetch(`http://localhost:8080/getAllImgs`)
+        await fetch(`192.168.2.131:8080/getAllImgs`)
         .then(res => {
             if (!res.ok) {
                 throw new Error('Erro ao Enviar Imagem')
@@ -70,7 +70,7 @@ async function enviaImg () {
 
 
     try {
-       await fetch(`http://localhost:8080/upload`, {
+       await fetch(`192.168.2.131:8080/upload`, {
             method : 'POST',
             body : formData           
         })
